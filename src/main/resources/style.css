@@ -14,7 +14,24 @@
     -fx-background-color: linear-gradient(from 0% 0% to 100% 100%, #1c1c1c, #262626);
 }
 
+.btns {
+    -fx-background-color: linear-gradient(from 0% 0% to 100% 100%, rgba(35,35,35,1), rgba(25,25,25,1));
+    -fx-text-fill: white;
+    -fx-font-size: 14px;
+    -fx-font-weight: bold;
+    -fx-background-radius: 10;
+    -fx-padding: 10 20;
+    -fx-cursor: hand;
+    -fx-alignment: center;
+    -fx-effect: dropshadow(one-pass-box, rgba(35,35,35,1), 8, 0.0, 0, 2);
+}
+
+.btns:hover {
+    -fx-background-color: linear-gradient(from 0% 0% to 100% 100%, #1c1c1c, #262626);
+}
+
 .purple:selected .thumb-area {
     -fx-background-color: #454545;
 }
  dropshadow(one-pass-box, rgba(20, 20, 20), 8, 0.0, 0, 2)
+

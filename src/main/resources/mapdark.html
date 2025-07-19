@@ -18,13 +18,11 @@
 
 <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
 <script>
-    // Crée la carte avec un centrage mondial et un zoom adapté
     var map = L.map('map', {
       minZoom: 1,
       maxZoom: 19
     }).setView([20, 0], 2);
 
-    // Tuiles CartoDB Dark Matter (dark mode fiable)
     L.tileLayer('https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png', {
       attribution: '&copy; <a href="https://carto.com/">CARTO</a>',
       subdomains: 'abcd',
