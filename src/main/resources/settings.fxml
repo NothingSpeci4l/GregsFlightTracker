@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+<?import org.controlsfx.control.ToggleSwitch?>
+
+
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="568.0" prefWidth="465.0" style="-fx-background-color: #191919;" xmlns="http://javafx.com/javafx/24.0.1" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <BorderPane prefHeight="90.0" prefWidth="465.0" style="-fx-background-color: #0f0f0f; -fx-effect: dropshadow(one-pass-box, rgba(15,15,15,1), 8, 0.0, 0, 2);">
+         <center>
+            <Label style="-fx-background-color: #0f0f0f;" text="SETTINGS" textFill="WHITE" BorderPane.alignment="CENTER">
+               <font>
+                  <Font name="System Bold" size="34.0" />
+               </font>
+            </Label>
+         </center>
+      </BorderPane>
+      <Pane layoutX="37.0" layoutY="117.0" prefHeight="320.0" prefWidth="392.0" style="-fx-background-color: #0f0f0f; -fx-border-radius: 20 20 20 20; -fx-background-radius: 20 20 20 20;">
+         <children>
+            <Label layoutX="64.0" layoutY="22.0" text="Dark Theme" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
+            </Label>
+            <ToggleSwitch layoutX="16.0" layoutY="18.0" prefHeight="25.0" prefWidth="39.0" selected="true" style="-fx-background-color: #0f0f0f;" styleClass="purple" stylesheets="@style.css" />
+         </children>
+      </Pane>
+   </children>
+</Pane>
