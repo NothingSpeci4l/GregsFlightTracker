@@ -1,5 +1,6 @@
 package com.gregwll.flighttracker;
 
+import com.gregwll.flighttracker.utils.Logger;
 import javafx.application.Application;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
@@ -27,8 +28,14 @@ public class Main extends Application {
     private static Scene mainscene;
     private static Scene settingscene;
 
+    private static Logger logger = new Logger("GregsFlightTracker");
+
     @Override
     public void start(Stage stage) {
+        //fonc
+        files();
+
+
         // WebView avec la carte
         WebView webView = new WebView();
         var url = getClass().getResource("/mapdark.html");
@@ -43,7 +50,7 @@ public class Main extends Application {
         sideBar.setAlignment(Pos.CENTER);
         sideBar.setPadding(new Insets(20));
         sideBar.setBackground(new Background(new BackgroundFill(
-                Color.rgb(0, 0, 0, 0.7), CornerRadii.EMPTY, Insets.EMPTY)));
+                Color.rgb(0,0,0, 0.50), CornerRadii.EMPTY, Insets.EMPTY)));
 
         Button btn1 = new Button("Zoom +");
         Button btn2 = new Button("Zoom -");
@@ -118,6 +125,16 @@ public class Main extends Application {
 
     public static void show() {
         stage2.setScene(mainscene);
+    }
+
+    private static void files() {
+        File roamingDir = new File(System.getProperty("user.home"), "GregsFlightTracker");
+        if(!roamingDir.exists()) {
+            roamingDir.mkdirs();
+            System.out.println("JETPIZEJ");
+        }
+
+
     }
 
 
