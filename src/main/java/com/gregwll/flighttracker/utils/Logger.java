@@ -13,6 +13,6 @@ public class Logger {
     }
 
     public void sendError(String content) {
-        System.err.println(prefix + " " + content);
+        System.err.println(prefix + ": " + content);
     }
 }

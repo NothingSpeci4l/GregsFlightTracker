@@ -1,5 +1,9 @@
 package com.gregwll.flighttracker;
 
+import com.gregwll.flighttracker.files.FileManager;
+import com.gregwll.flighttracker.files.FilesUtils;
+import com.gregwll.flighttracker.files.SettingsSerializationManager;
+import com.gregwll.flighttracker.files.objects.Settings;
 import com.gregwll.flighttracker.utils.Logger;
 import javafx.application.Application;
 import javafx.event.ActionEvent;
@@ -28,11 +32,17 @@ public class Main extends Application {
     private static Scene mainscene;
     private static Scene settingscene;
 
+    SettingsSerializationManager settingsSerializationManager;
+
     private static Logger logger = new Logger("GregsFlightTracker");
+
+    private static Main instance;
 
     @Override
     public void start(Stage stage) {
         //fonc
+        this.settingsSerializationManager = new SettingsSerializationManager();
+        instance = this;
         files();
 
 
@@ -66,6 +76,16 @@ public class Main extends Application {
 
             @Override
             public void handle(ActionEvent actionEvent) {
+
+                Settings settings = settingsSerializationManager.deserialize(FilesUtils.loadContent(FileManager.getSettingsFile()));
+                String simbriefId = settings.getSimbriefId();
+                Boolean darkTheme = settings.getDark();
+
+                if(darkTheme) {
+
+                }
+
+
                var url = getClass().getResource("/settings.fxml");
                 if (url == null) {
                     System.err.println("settings.fxml introuvable !");
@@ -128,14 +148,18 @@ public class Main extends Application {
     }
 
     private static void files() {
-        File roamingDir = new File(System.getProperty("user.home"), "GregsFlightTracker");
-        if(!roamingDir.exists()) {
-            roamingDir.mkdirs();
-            System.out.println("JETPIZEJ");
-        }
-
-
+        FileManager.onJoin();
     }
 
+    public static Logger getLogger() {
+        return logger;
+    }
 
+    public SettingsSerializationManager getSettingsSerializationManager() {
+        return this.settingsSerializationManager;
+    }
+
+    public static Main getInstance() {
+        return instance;
+    }
 }
