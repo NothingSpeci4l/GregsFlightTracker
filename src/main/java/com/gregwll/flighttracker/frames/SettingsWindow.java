@@ -1,6 +1,7 @@
 package com.gregwll.flighttracker.frames;
 
 import com.gregwll.flighttracker.Main;
+import com.gregwll.flighttracker.api.SimbriefUtils;
 import com.gregwll.flighttracker.controller.SettingsController;
 import com.gregwll.flighttracker.files.FileManager;
 import com.gregwll.flighttracker.files.FilesUtils;
@@ -9,6 +10,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.paint.Paint;
 import javafx.stage.Stage;
 import org.controlsfx.control.ToggleSwitch;
 
@@ -34,9 +36,20 @@ public class SettingsWindow {
             throw new RuntimeException(e);
         }
 
-        // insertion des settings json
         SettingsController controller = loader.getController();
         controller.getDarkLightSwitch().setSelected(darkTheme);
+        if(simbriefId != "") {
+            controller.getSimbriefUsernameField().setText(simbriefId);
+
+            //label
+            try {
+                controller.getSimbriefid().setText(SimbriefUtils.getUserId(simbriefId));
+                controller.getSimbriefid().setTextFill(Paint.valueOf("GREEN"));
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+
+        }
 
         Scene scene = new Scene(root, mainScene.getWidth(), mainScene.getHeight());
         scene.getStylesheets().add(urlcss.toExternalForm());

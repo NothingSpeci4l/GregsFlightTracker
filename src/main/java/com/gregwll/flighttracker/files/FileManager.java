@@ -33,7 +33,7 @@ public class FileManager {
             logger.sendLog("Settings dir just been created");
         }
         if(!settingsFile.exists()) {
-            Settings settings = new Settings(true, null);
+            Settings settings = new Settings(true, "");
 
             final SettingsSerializationManager settingsSerializationManager = instance.getSettingsSerializationManager();
             final String jsonSettings = settingsSerializationManager.serialize(settings);

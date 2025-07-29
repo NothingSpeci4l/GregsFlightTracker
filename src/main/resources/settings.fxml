@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.HBox?>
@@ -39,10 +41,22 @@
                </Label>
             </HBox>
 
-            <!-- Spacer to push the button down -->
+            <VBox spacing="6.0">
+               <padding>
+                  <Insets left="12.0" />
+               </padding>
+               <Label text="SimBrief Username" textFill="WHITE">
+                  <font>
+                     <Font name="System Bold" size="15.0" />
+                  </font>
+               </Label>
+               <TextField fx:id="simbriefUsernameField" maxWidth="220" prefWidth="220" promptText="Enter your SimBrief username" />
+               <Label fx:id="simbriefid" prefHeight="17.0" prefWidth="200.0" text="Simbrief username is not recognized" textFill="RED" />
+            </VBox>
+
+
             <Region VBox.vgrow="ALWAYS" />
 
-            <!-- Centered Button -->
             <HBox alignment="CENTER">
                <Button onAction="#saveClose" prefHeight="40" prefWidth="200" styleClass="btns" stylesheets="@style.css" text="SAVE &amp; EXIT">
                   <font>

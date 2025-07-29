@@ -71,8 +71,6 @@ public class Main extends Application {
         sideBar.setBackground(new Background(new BackgroundFill(
                 Color.rgb(0,0,0, 0.50), CornerRadii.EMPTY, Insets.EMPTY)));
 
-        Button btn1 = new Button("Zoom +");
-        Button btn2 = new Button("Zoom -");
         Region spacer = new Region(); // espace flexible
 
         Button settingsBtn = new Button("Settings");
@@ -100,7 +98,7 @@ public class Main extends Application {
 
         VBox.setVgrow(spacer, Priority.ALWAYS);
 
-        sideBar.getChildren().addAll(btn1, btn2, spacer, settingsBtn);
+        sideBar.getChildren().addAll(spacer, settingsBtn);
         sideBar.setPrefWidth(250);
 
         StackPane root = new StackPane(webView);
