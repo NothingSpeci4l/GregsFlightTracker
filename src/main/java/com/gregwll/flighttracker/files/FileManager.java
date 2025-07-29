@@ -17,7 +17,7 @@ public class FileManager {
     static File settingsDir = new File(roamingDir, "settings");
 
     //Jsons
-    static File settingsFile = new File(settingsDir, "settings.json");
+    public static File settingsFile = new File(settingsDir, "settings.json");
 
     public static File getSettingsFile() {
         return settingsFile;
