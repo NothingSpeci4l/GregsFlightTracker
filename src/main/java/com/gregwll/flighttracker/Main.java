@@ -1,5 +1,6 @@
 package com.gregwll.flighttracker;
 
+import com.gregwll.flighttracker.api.SimbriefUtils;
 import com.gregwll.flighttracker.files.FileManager;
 import com.gregwll.flighttracker.files.FilesUtils;
 import com.gregwll.flighttracker.files.SettingsSerializationManager;
@@ -40,6 +41,12 @@ public class Main extends Application {
 
     @Override
     public void start(Stage stage) {
+
+        // test simbrief api
+
+
+
+
         //fonc
         this.settingsSerializationManager = new SettingsSerializationManager();
         instance = this;
