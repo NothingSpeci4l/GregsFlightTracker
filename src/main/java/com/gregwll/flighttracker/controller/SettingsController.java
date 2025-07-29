@@ -17,5 +17,3 @@ public class SettingsController {
         System.out.println("light");
     }
 }
-
-// ON CLICK POUR LE DARK MODE
