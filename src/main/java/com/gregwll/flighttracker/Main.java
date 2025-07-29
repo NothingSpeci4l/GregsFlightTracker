@@ -41,28 +41,39 @@ public class Main extends Application {
 
     private static Main instance;
 
+    //
+
+    private static StackPane root;
+    private static HBox overlay;
+
     @Override
     public void start(Stage stage) {
-
-        // test simbrief api
-
-
-
-
-        //fonc
         this.settingsSerializationManager = new SettingsSerializationManager();
         instance = this;
         files();
 
-
         // WebView avec la carte
         WebView webView = new WebView();
-        var url = getClass().getResource("/mapdark.html");
-        if (url == null) {
-            System.err.println("map.html introuvable !");
-            System.exit(1);
+
+        Settings settings = Main.getInstance().getSettingsSerializationManager().deserialize(FilesUtils.loadContent(FileManager.getSettingsFile()));
+        String simbriefId = settings.getSimbriefId();
+        Boolean darkTheme = settings.getDark();
+        if(darkTheme) {
+            var url = getClass().getResource("/mapdark.html");
+            if (url == null) {
+                System.err.println("map.html introuvable !");
+                System.exit(1);
+            }
+            webView.getEngine().load(url.toExternalForm());
+        } else {
+            var url = getClass().getResource("/maplight.html");
+            if (url == null) {
+                System.err.println("map.html introuvable !");
+                System.exit(1);
+            }
+            webView.getEngine().load(url.toExternalForm());
         }
-        webView.getEngine().load(url.toExternalForm());
+
 
         // Barre latérale gauche
         VBox sideBar = new VBox(10);
@@ -101,8 +112,8 @@ public class Main extends Application {
         sideBar.getChildren().addAll(spacer, settingsBtn);
         sideBar.setPrefWidth(250);
 
-        StackPane root = new StackPane(webView);
-        HBox overlay = new HBox(sideBar);
+        root = new StackPane(webView);
+        overlay = new HBox(sideBar);
         overlay.setPickOnBounds(false);
         root.getChildren().add(overlay);
         StackPane.setAlignment(overlay, javafx.geometry.Pos.CENTER_LEFT);
@@ -146,5 +157,25 @@ public class Main extends Application {
 
     public static Main getInstance() {
         return instance;
+    }
+
+    // themes changes
+
+    public static void lightTheme() {
+        WebView webView = new WebView();
+        var urlLight = instance.getClass().getResource("/maplight.html");
+        webView.getEngine().load(urlLight.toExternalForm());
+        StackPane root = new StackPane(webView);
+        root.getChildren().add(overlay);
+        mainscene.setRoot(root);
+    }
+
+    public static void darkTheme() {
+        WebView webView = new WebView();
+        var urlDark = instance.getClass().getResource("/mapdark.html");
+        webView.getEngine().load(urlDark.toExternalForm());
+        StackPane root = new StackPane(webView);
+        root.getChildren().add(overlay);
+        mainscene.setRoot(root);
     }
 }

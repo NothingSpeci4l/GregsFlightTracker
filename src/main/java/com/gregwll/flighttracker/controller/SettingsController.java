@@ -32,7 +32,9 @@ public class SettingsController {
 
     public void darkMode(MouseEvent e) {
         if(!darkLightSwitch.isSelected()) {
-            System.out.println("pute");
+            Main.lightTheme();
+        } else {
+            Main.darkTheme();
         }
     }
 

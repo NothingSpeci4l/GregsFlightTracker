@@ -42,9 +42,6 @@ public class FileManager {
 
             logger.sendLog("Settings FILE just been created");
         }
-
-
-
     }
 
 
