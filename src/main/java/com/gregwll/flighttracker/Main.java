@@ -5,6 +5,7 @@ import com.gregwll.flighttracker.files.FileManager;
 import com.gregwll.flighttracker.files.FilesUtils;
 import com.gregwll.flighttracker.files.SettingsSerializationManager;
 import com.gregwll.flighttracker.files.objects.Settings;
+import com.gregwll.flighttracker.frames.SettingsWindow;
 import com.gregwll.flighttracker.utils.Logger;
 import javafx.application.Application;
 import javafx.event.ActionEvent;
@@ -20,6 +21,7 @@ import javafx.scene.layout.*;
 import javafx.scene.paint.Color;
 import javafx.scene.web.WebView;
 import javafx.stage.Stage;
+import org.controlsfx.control.ToggleSwitch;
 
 import javax.xml.stream.Location;
 import java.io.File;
@@ -79,41 +81,19 @@ public class Main extends Application {
 
 
         settingsBtn.setOnAction(new EventHandler<ActionEvent>() {
-
-
             @Override
             public void handle(ActionEvent actionEvent) {
-
-                Settings settings = settingsSerializationManager.deserialize(FilesUtils.loadContent(FileManager.getSettingsFile()));
-                String simbriefId = settings.getSimbriefId();
-                Boolean darkTheme = settings.getDark();
-
-                if(darkTheme) {
-
-                }
-
-
                var url = getClass().getResource("/settings.fxml");
                 if (url == null) {
                     System.err.println("settings.fxml introuvable !");
                     System.exit(1);
                 }
-                Parent root;
-                try {
-                    root = FXMLLoader.load(url);
-                } catch (IOException e) {
-                    throw new RuntimeException(e);
-                }
-                Scene scene = new Scene(root, mainscene.getWidth(), mainscene.getHeight());
                 var urlcss = getClass().getResource("/style.css");
                 if (urlcss == null) {
                     System.err.println("stylecss introuvable !");
                     System.exit(1);
                 }
-                scene.getStylesheets().add(urlcss.toExternalForm());
-                settingscene = scene;
-                stage.setScene(scene);
-                stage.show();
+                SettingsWindow.getInstance().showSettings(url, urlcss, mainscene, settingscene, stage);
             }
         });
 

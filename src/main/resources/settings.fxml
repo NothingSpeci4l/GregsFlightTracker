@@ -31,7 +31,7 @@
 
             <!-- Theme Switch Row -->
             <HBox spacing="10.0">
-               <ToggleSwitch onMouseReleased="#lightMode" selected="true" style="-fx-background-color: #0f0f0f;" styleClass="purple" stylesheets="@style.css" />
+               <ToggleSwitch fx:id="darkLightSwitch" onMouseReleased="#darkMode" selected="false" style="-fx-background-color: #0f0f0f;" styleClass="purple" stylesheets="@style.css" />
                <Label text="Dark Theme" textFill="WHITE">
                   <font>
                      <Font name="System Bold" size="15.0" />
