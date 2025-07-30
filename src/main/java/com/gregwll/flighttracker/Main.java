@@ -1,6 +1,6 @@
 package com.gregwll.flighttracker;
 
-import com.gregwll.flighttracker.api.SimbriefUtils;
+import com.gregwll.flighttracker.api.simconnect.SystemState;
 import com.gregwll.flighttracker.files.FileManager;
 import com.gregwll.flighttracker.files.FilesUtils;
 import com.gregwll.flighttracker.files.SettingsSerializationManager;
@@ -10,24 +10,16 @@ import com.gregwll.flighttracker.utils.Logger;
 import javafx.application.Application;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
-import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
-import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.layout.*;
 import javafx.scene.paint.Color;
 import javafx.scene.web.WebView;
 import javafx.stage.Stage;
-import org.controlsfx.control.ToggleSwitch;
 
-import javax.xml.stream.Location;
-import java.io.File;
 import java.io.IOException;
-import java.net.URISyntaxException;
-import java.util.Objects;
 
 public class Main extends Application {
 

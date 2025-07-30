@@ -1,18 +1,16 @@
 package com.gregwll.flighttracker.frames;
 
 import com.gregwll.flighttracker.Main;
-import com.gregwll.flighttracker.api.SimbriefUtils;
+import com.gregwll.flighttracker.api.simbrief.SimbriefUtils;
 import com.gregwll.flighttracker.controller.SettingsController;
 import com.gregwll.flighttracker.files.FileManager;
 import com.gregwll.flighttracker.files.FilesUtils;
 import com.gregwll.flighttracker.files.objects.Settings;
-import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.paint.Paint;
 import javafx.stage.Stage;
-import org.controlsfx.control.ToggleSwitch;
 
 import java.io.IOException;
 import java.net.URL;

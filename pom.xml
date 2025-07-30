@@ -24,6 +24,11 @@
     </repositories>
     <dependencies>
         <dependency>
+            <groupId>org.lembeck</groupId>
+            <artifactId>simconnect-java-util</artifactId>
+            <version>0.1</version>
+        </dependency>
+        <dependency>
             <groupId>com.google.code.gson</groupId>
             <artifactId>gson</artifactId>
             <version>2.13.1</version>

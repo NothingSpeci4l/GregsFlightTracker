@@ -1,4 +1,4 @@
-package com.gregwll.flighttracker.api;
+package com.gregwll.flighttracker.api.simbrief;
 
 import java.net.URI;
 import java.net.http.HttpClient;
